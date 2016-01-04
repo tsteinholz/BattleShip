@@ -12,10 +12,14 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="Libraries/allegro-5.0.10-mingw-4.7.0/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="Libraries\allegro-5.0.10-mingw-4.7.0\bin\allegro-5.0.10-monolith-md-debug.dll" />
+					<Add directory="Libraries/allegro-5.0.10-mingw-4.7.0/bin" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -26,6 +30,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="Libraries/allegro-5.0.10-mingw-4.7.0/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -37,6 +42,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/BattleShip.h" />
+		<Unit filename="src/BattleShip.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

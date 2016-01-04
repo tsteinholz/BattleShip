@@ -257,3 +257,17 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
+1451913309 source:h:\c++\battleship\src\battleship.cpp
+	"BattleShip.h"
+
+1451914758 h:\c++\battleship\include\battleship.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_ttf.h>
+	<stdio.h>
+

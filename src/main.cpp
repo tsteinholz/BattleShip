@@ -1,30 +1,36 @@
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_audio.h>
-#include <allegro5/allegro_acodec.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_physfs.h>
-#include <allegro5/allegro_ttf.h>
+//-----------------------------------------------------------------------------
+//
+// The MIT License (MIT)
+//
+// Copyright (c) 2016 Thomas Steinholz
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+//-----------------------------------------------------------------------------
 
-#include <stdio.h>
+#include "BattleShip.h"
 
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
 
 const unsigned int SCREEN_W = 900, SCREEN_H = 600;
-
-typedef enum
-{
-    MainMenu,
-	HowToBlackJack,
-	Instructions,
-    Game,
-    FinalMenu
-} GameState;
-
-GameState gameState = MainMenu;
 
 int main(int argc, char **argv)
 {
@@ -72,8 +78,6 @@ int main(int argc, char **argv)
 
     al_set_window_title(display, "BattleShip by Thomas Steinholz");
 
-	//background = Util::LoadB("res/table.jpeg");
-
     queue = al_create_event_queue();
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_mouse_event_source());
@@ -81,36 +85,36 @@ int main(int argc, char **argv)
     al_register_event_source(queue, al_get_timer_event_source(timer));
     al_start_timer(timer);
 
+    BattleShip *battleShip = new BattleShip();
+
     bool executing = true;
     while (executing)
     {
         ALLEGRO_EVENT event;
         al_wait_for_event(queue, &event);
 
+        executing = !battleShip->Quit;
+        battleShip->Update(&event);
+
         switch(event.type)
         {
         case ALLEGRO_EVENT_DISPLAY_CLOSE:
             executing = false;
             printf("debug: hit the close button");
+            // TODO : Fix
             break;
         case ALLEGRO_EVENT_KEY_DOWN:
 			if (event.keyboard.keycode == ALLEGRO_KEY_ESCAPE) executing = false;
-            break;
-		case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
-			break;
-        case ALLEGRO_EVENT_MOUSE_AXES:
-            break;
-        case ALLEGRO_EVENT_TIMER:
             break;
         }
 
         if (al_is_event_queue_empty(queue))
         {
-            //al_draw_scaled_bitmap(background, 0, 0, al_get_bitmap_width(background), al_get_bitmap_height(background), 0, 0 , SCREEN_W, SCREEN_H, 0);
-
+            battleShip->Render();
             al_flip_display();
         }
     }
+    delete battleShip;
     al_destroy_display(display);
 
     return 0;
