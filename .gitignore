@@ -1,3 +1,10 @@
+# Allegro
+allegro.log
+
+# Code::Blocks
+obj/
+bin/
+
 # Compiled Object files
 *.slo
 *.lo
