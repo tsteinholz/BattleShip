@@ -24,63 +24,40 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifndef BATTLESHIP_H
-#define BATTLESHIP_H
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_audio.h>
-#include <allegro5/allegro_acodec.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_physfs.h>
-#include <allegro5/allegro_ttf.h>
-
-#include <stdio.h>
-
-#include "Grid.h"
+#include <allegro5/events.h>
 
 //-----------------------------------------------------------------------------
-// Purpose: Main Game Class
+// Purpose: Represents a Game Object
 //-----------------------------------------------------------------------------
-class BattleShip
+class GameObject
 {
     public:
-        BattleShip(ALLEGRO_DISPLAY* display);
-        virtual ~BattleShip();
+
+        GameObject();
+        virtual ~GameObject();
 
         //-----------------------------------------------------------------------------
-        // Purpose: Set the current game mode and have the game act accordingly
+        // Purpose: Renders the Game Object
         //-----------------------------------------------------------------------------
-        typedef enum {
-            MAINMENU,
-            INSTRUCTIONS,
-            GAME,
-            CONCLUSION,
-        } GameMode;
+        virtual void Render();
 
         //-----------------------------------------------------------------------------
-        // Purpose: Update the game events
+        // Purpose: Updates the Game Object
         //-----------------------------------------------------------------------------
-        void Update(ALLEGRO_EVENT *event);
+        virtual void Update(ALLEGRO_EVENT *event);
 
         //-----------------------------------------------------------------------------
-        // Purpose: Render the game
+        // Purpose: The X Coordinate value of the Game Object
         //-----------------------------------------------------------------------------
-        void Render();
+        int X;
 
         //-----------------------------------------------------------------------------
-        // Purpose: Called when resizing the game
+        // Purpose: The Y Coordinate value of the Game Object
         //-----------------------------------------------------------------------------
-        void Resize();
-
-        //-----------------------------------------------------------------------------
-        // Purpose: Set to true to quit the game
-        //-----------------------------------------------------------------------------
-        bool Quit;
-
-    protected:
-        Grid *_Grid;
+        int Y;
 };
 
-#endif // BATTLESHIP_H
+#endif // GAMEOBJECT_H

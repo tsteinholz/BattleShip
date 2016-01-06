@@ -22,24 +22,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
+
 //-----------------------------------------------------------------------------
+#include "Grid.h"
 
-#include "BattleShip.h"
-
-BattleShip::BattleShip(ALLEGRO_DISPLAY *display)
+Grid::Grid(ALLEGRO_FONT **font_set) : _FontSet(font_set)
 {
-    //ctor
+
 }
 
-BattleShip::~BattleShip()
+Grid::~Grid()
 {
     //dtor
 }
 
-void BattleShip::Update(ALLEGRO_EVENT *event) {
+void Grid::Render() {
 
 }
 
-void BattleShip::Render() {
+void Grid::Resize(unsigned int width, unsigned int height) {
 
 }

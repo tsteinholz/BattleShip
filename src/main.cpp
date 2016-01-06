@@ -85,7 +85,7 @@ int main(int argc, char **argv)
     al_register_event_source(queue, al_get_timer_event_source(timer));
     al_start_timer(timer);
 
-    BattleShip *battleShip = new BattleShip();
+    BattleShip *battleShip = new BattleShip(display);
 
     bool executing = true;
     while (executing)
@@ -98,13 +98,16 @@ int main(int argc, char **argv)
 
         switch(event.type)
         {
+
         case ALLEGRO_EVENT_DISPLAY_CLOSE:
+            // TODO : Fix
             executing = false;
             printf("debug: hit the close button");
-            // TODO : Fix
             break;
         case ALLEGRO_EVENT_KEY_DOWN:
-			if (event.keyboard.keycode == ALLEGRO_KEY_ESCAPE) executing = false;
+			if (event.keyboard.keycode == ALLEGRO_KEY_ESCAPE) executing = false; break;
+        case ALLEGRO_EVENT_DISPLAY_RESIZE:
+            battleShip->Resize();
             break;
         }
 

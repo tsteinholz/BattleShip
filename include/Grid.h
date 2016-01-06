@@ -24,63 +24,36 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifndef BATTLESHIP_H
-#define BATTLESHIP_H
+#ifndef GRID_H
+#define GRID_H
 
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_audio.h>
-#include <allegro5/allegro_acodec.h>
-#include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
-#include <allegro5/allegro_physfs.h>
-#include <allegro5/allegro_ttf.h>
 
-#include <stdio.h>
-
-#include "Grid.h"
+#include "GameObject.h"
 
 //-----------------------------------------------------------------------------
-// Purpose: Main Game Class
+// Purpose: Pretty much represents the board in the game
 //-----------------------------------------------------------------------------
-class BattleShip
+class Grid
 {
     public:
-        BattleShip(ALLEGRO_DISPLAY* display);
-        virtual ~BattleShip();
+
+        Grid(ALLEGRO_FONT **font_set);
+        virtual ~Grid();
 
         //-----------------------------------------------------------------------------
-        // Purpose: Set the current game mode and have the game act accordingly
+        // Purpose: Resize the grid.
         //-----------------------------------------------------------------------------
-        typedef enum {
-            MAINMENU,
-            INSTRUCTIONS,
-            GAME,
-            CONCLUSION,
-        } GameMode;
+        void Resize(unsigned int width, unsigned int height);
 
         //-----------------------------------------------------------------------------
-        // Purpose: Update the game events
-        //-----------------------------------------------------------------------------
-        void Update(ALLEGRO_EVENT *event);
-
-        //-----------------------------------------------------------------------------
-        // Purpose: Render the game
+        // Purpose: Render the grid
         //-----------------------------------------------------------------------------
         void Render();
 
-        //-----------------------------------------------------------------------------
-        // Purpose: Called when resizing the game
-        //-----------------------------------------------------------------------------
-        void Resize();
-
-        //-----------------------------------------------------------------------------
-        // Purpose: Set to true to quit the game
-        //-----------------------------------------------------------------------------
-        bool Quit;
-
     protected:
-        Grid *_Grid;
+        ALLEGRO_FONT **_FontSet;
+        GameObject _DataGrid[10][10];
 };
 
-#endif // BATTLESHIP_H
+#endif // GRID_H

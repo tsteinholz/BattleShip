@@ -24,22 +24,14 @@
 //
 //-----------------------------------------------------------------------------
 
-#include "BattleShip.h"
+#include "GameObject.h"
 
-BattleShip::BattleShip(ALLEGRO_DISPLAY *display)
+GameObject::GameObject()
 {
     //ctor
 }
 
-BattleShip::~BattleShip()
+GameObject::~GameObject()
 {
     //dtor
-}
-
-void BattleShip::Update(ALLEGRO_EVENT *event) {
-
-}
-
-void BattleShip::Render() {
-
 }
