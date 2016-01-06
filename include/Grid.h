@@ -28,6 +28,8 @@
 #define GRID_H
 
 #include <allegro5/allegro_font.h>
+#include <allegro5/drawing.h>
+#include <allegro5/allegro_primitives.h>
 
 #include "GameObject.h"
 
@@ -38,7 +40,7 @@ class Grid
 {
     public:
 
-        Grid(ALLEGRO_FONT **font_set);
+        Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set);
         virtual ~Grid();
 
         //-----------------------------------------------------------------------------
@@ -53,6 +55,7 @@ class Grid
 
     protected:
         ALLEGRO_FONT **_FontSet;
+        ALLEGRO_DISPLAY *_Display;
         GameObject *_DataGrid[10][10];
 };
 

@@ -26,7 +26,7 @@
 //-----------------------------------------------------------------------------
 #include "Grid.h"
 
-Grid::Grid(ALLEGRO_FONT **font_set) : _FontSet(font_set)
+Grid::Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set) : _FontSet(font_set), _Display(display)
 {
 
 }
@@ -37,6 +37,13 @@ Grid::~Grid()
 }
 
 void Grid::Render() {
+
+    for (float i = 0; i < al_get_display_width(_Display); i += (al_get_display_width(_Display) / 10)) {
+        al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(255,0,255), 3);
+    }
+    for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 10)) {
+        al_draw_line(0, i, al_get_display_width(_Display), i, al_map_rgb(255,0,255), 3);
+    }
 
 }
 

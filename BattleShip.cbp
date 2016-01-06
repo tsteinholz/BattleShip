@@ -43,7 +43,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/BattleShip.h" />
+		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/Grid.h" />
 		<Unit filename="src/BattleShip.cpp" />
+		<Unit filename="src/Grid.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

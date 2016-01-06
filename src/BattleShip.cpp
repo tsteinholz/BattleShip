@@ -28,7 +28,7 @@
 
 BattleShip::BattleShip(ALLEGRO_DISPLAY *display)
 {
-    //ctor
+    _Grid = new Grid(display, NULL);
 }
 
 BattleShip::~BattleShip()
@@ -41,7 +41,7 @@ void BattleShip::Update(ALLEGRO_EVENT *event) {
 }
 
 void BattleShip::Render() {
-
+    _Grid->Render();
 }
 
 void BattleShip::Resize() {
