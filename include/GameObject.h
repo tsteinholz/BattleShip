@@ -36,18 +36,18 @@ class GameObject
 {
     public:
 
-        GameObject();
+        GameObject() { }
         virtual ~GameObject();
 
         //-----------------------------------------------------------------------------
         // Purpose: Renders the Game Object
         //-----------------------------------------------------------------------------
-        virtual void Render();
+        virtual void Render() = 0;
 
         //-----------------------------------------------------------------------------
         // Purpose: Updates the Game Object
         //-----------------------------------------------------------------------------
-        virtual void Update(ALLEGRO_EVENT *event);
+        virtual void Update(ALLEGRO_EVENT *event) = 0;
 
         //-----------------------------------------------------------------------------
         // Purpose: The X Coordinate value of the Game Object

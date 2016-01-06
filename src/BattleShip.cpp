@@ -43,3 +43,7 @@ void BattleShip::Update(ALLEGRO_EVENT *event) {
 void BattleShip::Render() {
 
 }
+
+void BattleShip::Resize() {
+
+}

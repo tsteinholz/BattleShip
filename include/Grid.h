@@ -53,7 +53,7 @@ class Grid
 
     protected:
         ALLEGRO_FONT **_FontSet;
-        GameObject _DataGrid[10][10];
+        GameObject *_DataGrid[10][10];
 };
 
 #endif // GRID_H

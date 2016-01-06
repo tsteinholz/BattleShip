@@ -24,14 +24,14 @@
 //
 //-----------------------------------------------------------------------------
 
-#include "GameObject.h"
+//#include "GameObject.h"
 
-GameObject::GameObject()
-{
+//GameObject::GameObject()
+//{
     //ctor
-}
+//}
 
-GameObject::~GameObject()
-{
-    //dtor
-}
+//GameObject::~GameObject()
+//{
+//    //dtor
+//}
