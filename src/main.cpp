@@ -39,7 +39,9 @@ int main(int argc, char **argv)
     {
         fprintf(stderr, "Failed to initialize allegro!\n");
     }
+    al_set_new_display_flags(ALLEGRO_RESIZABLE | ALLEGRO_WINDOWED);
     display = al_create_display(SCREEN_W, SCREEN_H);
+
     if(!display)
     {
         fprintf(stderr, "Failed to create display!\n");

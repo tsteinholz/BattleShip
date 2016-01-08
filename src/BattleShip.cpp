@@ -26,9 +26,10 @@
 
 #include "BattleShip.h"
 
-BattleShip::BattleShip(ALLEGRO_DISPLAY *display)
+BattleShip::BattleShip(ALLEGRO_DISPLAY *display) : _Display(display)
 {
-    _Grid = new Grid(display, NULL);
+    _PlayerGrid = new Grid(display, NULL, Grid::LEFT);
+    _ComputerGrid = new Grid(display, NULL, Grid::RIGHT);
 }
 
 BattleShip::~BattleShip()
@@ -41,7 +42,14 @@ void BattleShip::Update(ALLEGRO_EVENT *event) {
 }
 
 void BattleShip::Render() {
-    _Grid->Render();
+    _PlayerGrid->Render();
+    _ComputerGrid->Render();
+
+    al_draw_line(
+        al_get_display_width(_Display) / 2, 0,
+        al_get_display_width(_Display) / 2, al_get_display_height(_Display),
+        al_map_rgb(255,255,255), 3);
+
 }
 
 void BattleShip::Resize() {

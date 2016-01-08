@@ -40,7 +40,14 @@ class Grid
 {
     public:
 
-        Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set);
+        typedef enum
+        {
+            LEFT,
+            RIGHT,
+            CENTER,
+        } ScreenAlignment;
+
+        Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set, ScreenAlignment alignment);
         virtual ~Grid();
 
         //-----------------------------------------------------------------------------
@@ -57,6 +64,7 @@ class Grid
         ALLEGRO_FONT **_FontSet;
         ALLEGRO_DISPLAY *_Display;
         GameObject *_DataGrid[10][10];
+        ScreenAlignment _Alignment;
 };
 
 #endif // GRID_H

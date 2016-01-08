@@ -80,7 +80,9 @@ class BattleShip
         bool Quit;
 
     protected:
-        Grid *_Grid;
+        ALLEGRO_DISPLAY *_Display;
+        Grid *_PlayerGrid;
+        Grid *_ComputerGrid;
 };
 
 #endif // BATTLESHIP_H
