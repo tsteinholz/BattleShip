@@ -24,27 +24,47 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
+#include "Button.h"
 
-#include <allegro5/events.h>
+Button::Button(int x, int y, int x2, int y2, char *text) :
+    X(x), Y(y), X2(x2), Y2(y2), Text(text)
+{ }
 
-//-----------------------------------------------------------------------------
-// Purpose: Represents a Game Object and gives a very primitive
-// implementation for the all the Game Objects.
-//-----------------------------------------------------------------------------
-class GameObject
+Button::~Button()
 {
-    public:
-        //-----------------------------------------------------------------------------
-        // Purpose: Renders the Game Object
-        //-----------------------------------------------------------------------------
-        virtual void Render() = 0;
 
-        //-----------------------------------------------------------------------------
-        // Purpose: Updates the Game Object
-        //-----------------------------------------------------------------------------
-        virtual void Update(ALLEGRO_EVENT *event) = 0;
-};
+}
 
-#endif // GAMEOBJECT_H
+void Button::Render()
+{
+    al_draw_rectangle(X, Y, X2, Y2, al_map_rgb(255, 255, 0), 3);
+    if (Hover)
+        al_draw_rectangle(X, Y, X2, Y2, al_map_rgb(255, 0, 255), 3);
+    if (Active)
+        al_draw_rectangle(X, Y, X2, Y2, al_map_rgb(0, 255, 255), 3);
+}
+
+void Button::Update(ALLEGRO_EVENT *evnt)
+{
+    if (evnt->type == ALLEGRO_EVENT_MOUSE_AXES)
+    {
+        if (evnt->mouse.x >= X && evnt->mouse.x <= X2)
+        {
+            if (evnt->mouse.y >= Y && evnt->mouse.y <= Y2)
+            {
+                Hover = true;
+            } else Hover = false;
+        } else Hover = false;
+    } else Hover = false;
+
+    if (evnt->type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
+    {
+        if (evnt->mouse.x >= X && evnt->mouse.y <= Y)
+        {
+            if (evnt->mouse.y >= Y && evnt->mouse.y <= Y2)
+            {
+                Active = true;
+            } else Active = false;
+        } else Active = false;
+    } else Active = false;
+}

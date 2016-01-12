@@ -272,13 +272,13 @@
 	<stdio.h>
 	"Grid.h"
 
-1452257114 h:\c++\battleship\include\grid.h
+1452601800 h:\c++\battleship\include\grid.h
 	<allegro5/allegro_font.h>
 	<allegro5/drawing.h>
 	<allegro5/allegro_primitives.h>
 	"GameObject.h"
 
-1452086199 h:\c++\battleship\include\gameobject.h
+1452603828 h:\c++\battleship\include\gameobject.h
 	<allegro5/events.h>
 
 1452085851 source:h:\c++\battleship\src\gameobject.cpp
@@ -286,6 +286,20 @@
 1452260267 source:h:\c++\battleship\src\grid.cpp
 	"Grid.h"
 
-1452258282 source:h:\c++\battleship\src\main.cpp
+1452602644 source:h:\c++\battleship\src\main.cpp
 	"BattleShip.h"
+
+1452602590 source:h:\c++\battleship\src\label.cpp
+	"Label.h"
+
+1452602594 h:\c++\battleship\include\label.h
+	"GameObject.h"
+
+1452604508 source:h:\c++\battleship\src\button.cpp
+	"Button.h"
+
+1452604603 h:\c++\battleship\include\button.h
+	"GameObject.h"
+	<allegro5/drawing.h>
+	<allegro5/allegro_primitives.h>
 

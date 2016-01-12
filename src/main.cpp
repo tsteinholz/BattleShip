@@ -102,7 +102,7 @@ int main(int argc, char **argv)
         {
 
         case ALLEGRO_EVENT_DISPLAY_CLOSE:
-            // TODO : Fix
+            // TODO : Maybe Fix
             executing = false;
             printf("debug: hit the close button");
             break;

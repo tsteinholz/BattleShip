@@ -24,27 +24,52 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
+#ifndef BUTTON_H
+#define BUTTON_H
 
-#include <allegro5/events.h>
+#include "GameObject.h"
+
+#include <allegro5/drawing.h>
+#include <allegro5/allegro_primitives.h>
 
 //-----------------------------------------------------------------------------
-// Purpose: Represents a Game Object and gives a very primitive
-// implementation for the all the Game Objects.
+// Purpose: TODO
 //-----------------------------------------------------------------------------
-class GameObject
+class Button : public GameObject
 {
     public:
-        //-----------------------------------------------------------------------------
-        // Purpose: Renders the Game Object
-        //-----------------------------------------------------------------------------
-        virtual void Render() = 0;
+
+        Button(int x = 0, int y = 0, int x2 = 0, int y2 = 0, char *text = 0);
+        virtual ~Button();
 
         //-----------------------------------------------------------------------------
-        // Purpose: Updates the Game Object
+        // Purpose: This variable will be true when the button is clicked so that you
+        // can handle button click events externally
         //-----------------------------------------------------------------------------
-        virtual void Update(ALLEGRO_EVENT *event) = 0;
+        bool Active;
+
+        //-----------------------------------------------------------------------------
+        // Purpose: This variable is active when the mouse is hovering over the button
+        // this makes it easy for external event handling
+        //-----------------------------------------------------------------------------
+        bool Hover;
+
+        //-----------------------------------------------------------------------------
+        // Purpose: The rendered text for the button
+        //-----------------------------------------------------------------------------
+        char* Text;
+
+        //-----------------------------------------------------------------------------
+        // Purpose: The two ending coordinates for the button to be rendered
+        //-----------------------------------------------------------------------------
+        int X, Y, X2, Y2;
+
+        void Render() override;
+
+        void Update(ALLEGRO_EVENT *evnt) override;
+
+    protected:
+    private:
 };
 
-#endif // GAMEOBJECT_H
+#endif // BUTTON_H

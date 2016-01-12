@@ -24,27 +24,19 @@
 //
 //-----------------------------------------------------------------------------
 
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
+#include "Label.h"
 
-#include <allegro5/events.h>
-
-//-----------------------------------------------------------------------------
-// Purpose: Represents a Game Object and gives a very primitive
-// implementation for the all the Game Objects.
-//-----------------------------------------------------------------------------
-class GameObject
+Label::Label()
 {
-    public:
-        //-----------------------------------------------------------------------------
-        // Purpose: Renders the Game Object
-        //-----------------------------------------------------------------------------
-        virtual void Render() = 0;
+    //ctor
+}
 
-        //-----------------------------------------------------------------------------
-        // Purpose: Updates the Game Object
-        //-----------------------------------------------------------------------------
-        virtual void Update(ALLEGRO_EVENT *event) = 0;
-};
+Label::~Label()
+{
+    //dtor
+}
 
-#endif // GAMEOBJECT_H
+void Label::Render()
+{
+
+}
