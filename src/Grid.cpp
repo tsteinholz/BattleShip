@@ -42,23 +42,23 @@ void Grid::Render()
     switch(_Alignment)
     {
     case LEFT:
-        for (float i = 0; i < (al_get_display_width(_Display) / 2); i += ((al_get_display_width(_Display) / 2.0) / 11.0))
-            al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(0,255,255), 3);
-        for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 11.0))
-            al_draw_line(0, i, (al_get_display_width(_Display) / 2), i, al_map_rgb(0,255,255), 3);
+        //for (float i = 0; i < (al_get_display_width(_Display) / 2); i += ((al_get_display_width(_Display) / 2.0) / 11.0))
+        //    al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(0,255,255), 3);
+        //for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 11.0))
+        //    al_draw_line(0, i, (al_get_display_width(_Display) / 2), i, al_map_rgb(0,255,255), 3);
         break;
     case RIGHT:
-        for (float i = (al_get_display_width(_Display) / 2); i < al_get_display_width(_Display); i += ((al_get_display_width(_Display) / 2.0)/ 11.0))
-            al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(255,0,5), 3);
-        for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 11.0))
-            al_draw_line((al_get_display_width(_Display) / 2), i, al_get_display_width(_Display), i, al_map_rgb(255,0,5), 3);
+        //for (float i = (al_get_display_width(_Display) / 2); i < al_get_display_width(_Display); i += ((al_get_display_width(_Display) / 2.0)/ 11.0))
+        //    al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(255,0,5), 3);
+        //for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 11.0))
+        //    al_draw_line((al_get_display_width(_Display) / 2), i, al_get_display_width(_Display), i, al_map_rgb(255,0,5), 3);
         break;
     case CENTER:
     default:
-        for (float i = 0; i < al_get_display_width(_Display); i += (al_get_display_width(_Display) / 10))
-            al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(0,0,255), 3);
-        for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 10))
-            al_draw_line(0, i, al_get_display_width(_Display), i, al_map_rgb(255,0,255), 3);
+        //for (float i = 0; i < al_get_display_width(_Display); i += (al_get_display_width(_Display) / 10))
+        //    al_draw_line(i, 0, i, al_get_display_height(_Display), al_map_rgb(0,0,255), 3);
+        //for (float i = 0; i < al_get_display_height(_Display); i += (al_get_display_height(_Display) / 10))
+        //    al_draw_line(0, i, al_get_display_width(_Display), i, al_map_rgb(255,0,255), 3);
         break;
     }
 }

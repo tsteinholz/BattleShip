@@ -36,6 +36,8 @@ class Label : public GameObject
         virtual ~Label();
 
         void Render() override;
+
+        //void Update(ALLEGRO_EVENT *evnt) override;
     protected:
     private:
 };

@@ -57,7 +57,7 @@ class Button : public GameObject
         //-----------------------------------------------------------------------------
         // Purpose: The rendered text for the button
         //-----------------------------------------------------------------------------
-        char* Text;
+        char *Text;
 
         //-----------------------------------------------------------------------------
         // Purpose: The two ending coordinates for the button to be rendered

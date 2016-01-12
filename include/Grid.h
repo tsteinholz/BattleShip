@@ -31,15 +31,21 @@
 #include <allegro5/drawing.h>
 #include <allegro5/allegro_primitives.h>
 
+#include <vector>
+
+#include "Button.h"
 #include "GameObject.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Pretty much represents the board in the game
 //-----------------------------------------------------------------------------
-class Grid
+class Grid //: public GameObject
 {
     public:
 
+        //-----------------------------------------------------------------------------
+        // Purpose: Where the grid is aligned on the screen
+        //-----------------------------------------------------------------------------
         typedef enum
         {
             LEFT,
@@ -47,7 +53,7 @@ class Grid
             CENTER,
         } ScreenAlignment;
 
-        Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set, ScreenAlignment alignment);
+        Grid(ALLEGRO_DISPLAY *display, ALLEGRO_FONT **font_set = NULL, ScreenAlignment alignment = CENTER);
         virtual ~Grid();
 
         //-----------------------------------------------------------------------------
@@ -55,13 +61,16 @@ class Grid
         //-----------------------------------------------------------------------------
         void Resize(unsigned int width, unsigned int height);
 
-        void Render();
+        void Render();// override;
+
+        //void Update(ALLEGRO_EVENT *evnt) override;
 
     protected:
         ALLEGRO_FONT **_FontSet;
         ALLEGRO_DISPLAY *_Display;
         GameObject *_DataGrid[10][10];
         ScreenAlignment _Alignment;
+        std::vector<Button> Buttons;
 };
 
 #endif // GRID_H
